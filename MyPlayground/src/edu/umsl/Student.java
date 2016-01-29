@@ -134,46 +134,20 @@ public class Student
                             + "between 0 - 100");
             }
         }
+    else 
+        {
+            if (studentAvg > 70)
+            {
+                System.out.println("Your letter grade is a C");
+            }
+            else if (studentAvg > 60)
+            {
+                System.out.println("Your letter grade is a D");
+            }
             else 
-                {
-                    if (studentAvg > 70)
-                    {
-                        System.out.println("Your letter grade is a C");
-                    }
-                    else if (studentAvg > 60)
-                    {
-                        System.out.println("Your letter grade is a D");
-                    }
-                    else 
-                    {
-                        System.out.println("Your letter grade is an F");
-                    }
-                }
-
-
-
-
-//        if(input>=90){
-//                sumA++;
-//                System.out.println(new Integer(input) + "      A");
-//			}
-//            else if(input >= 70){
-//                sumB++;
-//                System.out.println(new Integer(input) + "      B");
-//            }
-//            else if(input >= 50){
-//                sumC++;
-//                System.out.println(new Integer(input) + "      C");
-//            }
-//            else if(input >= 35){
-//                sumD++;
-//                System.out.println(new Integer(input) + "      D");
-//            }
-//            else{
-//                sumF++;
-//                System.out.println(new Integer(input) + "      F");
-//            }
-//
-//            input = kbd.readInt();
+            {
+                System.out.println("Your letter grade is an F");
+            }
         }
     }
+}
