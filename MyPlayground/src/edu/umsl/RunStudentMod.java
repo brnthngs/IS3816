@@ -38,7 +38,6 @@ public class RunStudentMod
 
             if(input == 1)
                 {
-                    
                     s1 = new StudentMod();
 //                    s2 = new StudentMod();
                     System.out.println("Enter your first name");
