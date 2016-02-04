@@ -9,13 +9,9 @@ package edu.umsl;
 import java.util.Scanner;
 
 /*
-
   @author lawtonb
  */
 
-/*
-
-*/
 public class Student
 {
     
