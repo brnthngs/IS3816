@@ -21,13 +21,13 @@ import java.text.*;
 
 public class Account
 {
- private double balance;
- private int firstdate;
- private int seconddate;
- private Calendar date1 = new GregorianCalendar();
- private Calendar date2 = new GregorianCalendar();
- private boolean dateflag = false;
- private double rate;
+ protected double balance;
+ protected int firstdate;
+ protected int seconddate;
+ protected Calendar date1 = new GregorianCalendar();
+ protected Calendar date2 = new GregorianCalendar();
+ protected boolean dateflag = false;
+ protected double rate;
 
  // Initial Constructor
  // Once called the Account1 constructor presents a menu for users to make

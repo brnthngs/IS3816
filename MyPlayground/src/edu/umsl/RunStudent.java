@@ -59,6 +59,9 @@ public class RunStudent
                 }
             else if(input == 2)
                 {
+                    s1.showStudent();
+                    s2.showStudent();
+
 //                    if (s1 != null)
 //                        {
 //                        System.out.println("First Name: " + s1.getfname());
@@ -68,9 +71,7 @@ public class RunStudent
 //                        System.out.println("Student Average: " + 
 //                                s1.getStudentAvg());
 //                        }
-                    s1.showStudent();
-                    s2.showStudent();
-
+                    
                     // in the student class create a method that calculates the average
                     // from here use the student reference(s) to call a method in 
                     // the student class that will print out student name, exam 
