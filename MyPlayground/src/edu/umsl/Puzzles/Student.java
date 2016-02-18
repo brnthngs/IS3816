@@ -6,6 +6,7 @@
 
 package edu.umsl.Puzzles;
 
+import java.io.Serializable;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -15,13 +16,17 @@ import java.text.NumberFormat;
  * @author bpwc0b
  */
 
-public class Student
+/**
+ * 
+ * @author bpwc0b
+ */
+public abstract class Student implements Serializable
 {
- private String ID;
- private float Exam1;
- private float Exam2;
-        public static final String instructor = "Lawton";
- public static int counter;
+private String ID;
+private float Exam1;
+private float Exam2;
+public static final String instructor = "Lawton";
+public static int counter;
        
                
         public Student()
@@ -54,17 +59,18 @@ public class Student
   Exam2 = e2; 
  }
  
- public void showAll(){
-  System.out.println();
-  System.out.println("Student ID: " + ID);
-  System.out.println("Exam 1: " + Exam1);
-  System.out.println("Exam 2: " + Exam2);
-                double myavg = calcAvg();
-  System.out.println("Average score: " + myavg);
-                char mylg = calcLetterGrade(myavg);
-                System.out.println("Your letter grade is: " + mylg);
-                //calcAvg();
- }
+    public void showAll()
+    {
+        System.out.println();
+        System.out.println("Student ID: " + ID);
+        System.out.println("Exam 1: " + Exam1);
+        System.out.println("Exam 2: " + Exam2);
+        double myavg = calcAvg();
+        System.out.println("Average score: " + myavg);
+        char mylg = calcLetterGrade(myavg);
+        System.out.println("Your letter grade is: " + mylg);
+        //calcAvg();
+    }
        
         public double calcAvg()
         {
@@ -79,7 +85,7 @@ public class Student
         }
       
        
-        private char calcLetterGrade(double input)
+        protected char calcLetterGrade(double input)
         {
             //int  sumA, sumB, sumC, sumD, sumF;
             //sumA=sumB=sumC=sumD=sumF=0;

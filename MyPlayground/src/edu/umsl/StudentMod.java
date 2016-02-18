@@ -13,7 +13,7 @@ import java.util.Scanner;
  * @author bpwc0b
  */
 
-public class StudentMod 
+public abstract class StudentMod implements Serializable
 {
     
     Scanner sc = new Scanner(System.in);
