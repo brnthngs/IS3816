@@ -20,7 +20,7 @@ import java.text.NumberFormat;
  * 
  * @author bpwc0b
  */
-public abstract class Student implements Serializable
+public class Student implements Serializable
 {
 private String ID;
 private float Exam1;
