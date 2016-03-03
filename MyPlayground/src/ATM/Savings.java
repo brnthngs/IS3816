@@ -11,9 +11,9 @@ package ATM;
  */
 public class Savings extends Account
 {
-    
-    public Savings(double begin_balance) {
+
+    public Savings(double begin_balance)
+    {
         super(begin_balance);
     }
-    
 }

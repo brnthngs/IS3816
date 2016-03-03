@@ -8,6 +8,7 @@ package ATM;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.text.NumberFormat;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
@@ -20,7 +21,7 @@ import java.util.Locale;
  *
  * @author wetteb
  */
-public class Account 
+public class Account implements Serializable
 {
 
     protected double balance;
@@ -36,16 +37,17 @@ public class Account
     // a deposit, withdrawal, check balance or exit.
     // The menu is a loop that based on the selection will call either the
     // deposit method, withdrawal method or exit the program.
-    public Account(double begin_balance) 
+    public Account(double begin_balance)
     {
         balance = begin_balance;
 
     } // End Initial Constructor
 
-    public void menu() throws IOException 
+    public void menu() throws IOException
     {
         char mychar = 'z';
-        while (mychar != 'e') {
+        while (mychar != 'e')
+        {
             System.out.println();
             System.out.println();
             System.out.println();
@@ -72,37 +74,43 @@ public class Account
 
             mychar = input.charAt(index);
 
-            if (mychar == 'd' || mychar == 'D') {
+            if (mychar == 'd' || mychar == 'D')
+            {
                 System.out.println("Your current balance is:" + getBalance());
-                if (dateflag == true) {
+                if (dateflag == true)
+                {
                     getDate2();
                     getInterest();
                     deposit();
-                } else {
+                } else
+                {
                     getDate1();
                     deposit();
                 }
 
-            } else if (mychar == 'w') {
+            } else if (mychar == 'w')
+            {
                 System.out.println("Your current balance is: " + getBalance());
-                if (dateflag == true) {
+                if (dateflag == true)
+                {
                     getDate2();
                     getInterest();
                     withdraw();
-                } else {
+                } else
+                {
                     getDate1();
                     withdraw();
                 }
-            } else if (mychar == 'c') {
+            } else if (mychar == 'c')
+            {
                 System.out.println("Your current balance is: " + getBalance());
             }
-
         }
     }
 
     //Main method instantiates the initial account balance of 100 hundred dollars
     //Then creates the account and lets the Account class take over from there.
-    public static void main(String[] args) throws IOException 
+    public static void main(String[] args) throws IOException
     {
         double init_amount = 100.00;
         Account firstacct = new Account(init_amount);
@@ -110,7 +118,7 @@ public class Account
     }
 
     // This method retrieves the balance field and returns it in currency format
-    public String getBalance() 
+    public String getBalance()
     {
         NumberFormat currencyFormatter;
         String currencyOut;
@@ -124,7 +132,7 @@ public class Account
 
     // This method prompts the user for the deposit and then adds it to the
     // balance field.
-    public void deposit() throws IOException 
+    public void deposit() throws IOException
     {
         BufferedReader br;
         String entered_amount;
@@ -136,12 +144,11 @@ public class Account
         balance = balance + amount;
 
         System.out.println("Your balance is: " + getBalance());
-
     }
 
     // This method prompts the user for the withdraw amount and then subtracts
     // it from the balance field.
-    public void withdraw() throws IOException 
+    public void withdraw() throws IOException
     {
         BufferedReader br;
         String entered_amount;
@@ -151,11 +158,10 @@ public class Account
         entered_amount = br.readLine();
         double amount = Double.valueOf(entered_amount).doubleValue();
 
-        if (balance < amount) 
+        if (balance < amount)
         {
             System.out.println("Insufficient funds.");
-        } 
-        else 
+        } else
         {
             balance = balance - amount;
         }
@@ -166,7 +172,7 @@ public class Account
     // This function is only called on the first transaction after the
     // account has been initialized to set the first time a transaction
     // occurs for the account for the current year.
-    public void getDate1() throws IOException 
+    public void getDate1() throws IOException
     {
         System.out.print("Enter todays date(mm/dd/yyyy): ");
         BufferedReader br;
@@ -180,14 +186,14 @@ public class Account
         date1.setTime(date);
 
         firstdate = date1.get(date1.DAY_OF_YEAR);
-        dateflag = true;
 
+        dateflag = true;
     }
 
     // This method is called for every date entered after the first date.
     // The previous second date is passed to the first date to keep track of
     // time.
-    public void getDate2() throws IOException 
+    public void getDate2() throws IOException
     {
 
         System.out.print("Enter todays date(mm/dd/yyyy): ");
@@ -203,7 +209,7 @@ public class Account
 
         seconddate = date2.get(date2.DAY_OF_YEAR);
 
-        if (firstdate > seconddate) 
+        if (firstdate > seconddate)
         {
             System.out.println("You must enter a future date.");
             getDate2();
@@ -213,7 +219,7 @@ public class Account
 
     // This method calulates the interest based on the previous date and the
     // current date
-    public void getInterest() 
+    public void getInterest()
     {
         int datediff = seconddate - firstdate;
         rate = .05 / 365;

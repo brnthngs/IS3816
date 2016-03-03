@@ -16,8 +16,6 @@ import java.util.Scanner;
 public class User 
 {
 
-public class AccountArray {
-
     public static void main(String[] args) {
         //AccountArray sa = new AccountArray();
         //sa.runAccounts();

@@ -9,11 +9,11 @@ package ATM;
  *
  * @author wetteb
  */
-public class RunATM 
+public class RunATM
 {
+
     public static void main(String[] args)
     {
-        
-        
+
     }
 }

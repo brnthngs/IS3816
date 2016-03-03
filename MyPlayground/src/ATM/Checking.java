@@ -11,9 +11,10 @@ package ATM;
  */
 public class Checking extends Account
 {
-    
-    public Checking(double begin_balance) {
+
+    public Checking(double begin_balance)
+    {
         super(begin_balance);
     }
-    
+
 }
