@@ -16,7 +16,7 @@ public class User
     private String firstName;
     private String lastName;
     private String uuid;
-    private ArrayList<Account>accounts;
+    //private ArrayList<Account>accounts;
     
     
     
