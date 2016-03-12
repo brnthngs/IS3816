@@ -7,14 +7,39 @@ package ATM;
 
 /**
  *
- * @author wetteb
+ * @author Benjamin
  */
-public class Checking extends Account
+public class Checking extends Account 
 {
+     public void getInterest() {
+        int datediff = seconddate - firstdate;
+        rate = .05 / 365;
+        double ratetime = Math.pow(1 + getRate(), datediff);
+        balance = getBalance() * ratetime;
+        firstdate = seconddate;
+        System.out.printf("Your new balance is $%.02f", getBalance());
+        System.out.println("");
+     }
+     
+      public void createAcct() 
+      {
+        for (int i = 0; i < acct.length; i++) {
+            acctNumber = i;
+            acct[i] = new Account();
 
-    public Checking(double begin_balance)
-    {
-        super(begin_balance);
-    }
-
+            System.out.println("Please enter your First Name");
+            String firstName = sc.next();
+            System.out.println("Please enter your Last Name");
+            String lastName = sc.next();
+            acct[i].setAcctName(lastName, this.);
+            System.out.println("Account " + this + " belongs to "
+                    + firstName + " " + lastName);
+            this.balance = 100.00;
+            this.rate = 0.05;
+            System.out.printf("Your starting balance is $%.02f:", this.getBalance());
+            System.out.println("");
+            System.out.printf("Your starting interest rate is %.02f", this.getRate());
+            System.out.println("");
+        }
+    
 }

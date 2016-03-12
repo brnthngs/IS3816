@@ -7,13 +7,9 @@ package ATM;
 
 /**
  *
- * @author wetteb
+ * @author Benjamin
  */
-public class Savings extends Account
+public class Savings extends Account 
 {
-
-    public Savings(double begin_balance)
-    {
-        super(begin_balance);
-    }
+    
 }
