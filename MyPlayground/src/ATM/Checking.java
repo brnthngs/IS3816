@@ -13,6 +13,13 @@ import java.util.ArrayList;
  */
 public class Checking extends Account
 {
+    public Checking()
+    {
+        super();
+        System.out.println("Welcome to your new checking account:");
+        rate = .10;
+        balance = 100;
+    }
 
     /**
      *
@@ -21,12 +28,19 @@ public class Checking extends Account
     public void getInterest()
     {
         int datediff = seconddate - firstdate;
-        rate = .10 / 365;
+        setRate(.10 / 365);
         double ratetime = Math.pow(1 + getRate(), datediff);
         balance = getBalance() * ratetime;
         firstdate = seconddate;
         System.out.printf("Your new balance is $%.02f", getBalance());
         System.out.println("");
     }
-
 }
+    
+//    void setRate()
+//      {
+//          this.
+//      }
+    
+
+

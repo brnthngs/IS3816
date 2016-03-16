@@ -11,6 +11,13 @@ package ATM;
  */
 public class Savings extends Account 
 {
+    public Savings()
+    {
+        super();
+        System.out.println("Welcome to your new savings account:");
+        rate = .15;
+        balance = 100;
+    }
        /**
      *
      */
@@ -18,7 +25,7 @@ public class Savings extends Account
     public void getInterest()
     {
         int datediff = seconddate - firstdate;
-        rate = .15 / 365;
+        setRate(.15 / 365);
         double ratetime = Math.pow(1 + getRate(), datediff);
         balance = getBalance() * ratetime;
         firstdate = seconddate;
@@ -26,4 +33,9 @@ public class Savings extends Account
         System.out.println("");
     }
     
+//    @Override
+//      public double getRate()
+//    {
+//        return rate;
+//    }
 }

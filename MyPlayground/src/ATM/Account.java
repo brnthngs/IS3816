@@ -23,12 +23,15 @@ public class Account implements Serializable
 {
 
     double balance;
+    protected double amount;
     protected int firstdate;
     protected int seconddate;
     protected Calendar cal1 = new GregorianCalendar();
     protected Calendar cal2 = new GregorianCalendar();
     protected boolean dateflag = false;
-    double rate;
+    boolean ck = false;
+    boolean sv = false;
+    protected double rate;
     String menuItem;
     double acctBalance;
     double balanceNew;
@@ -38,70 +41,34 @@ public class Account implements Serializable
     transient Scanner sc = new Scanner(System.in);
     double depAmt;
     double withAmt;
-
-    public void setAcctName(String lastName, int i)
+//    Checking checking = new Checking();
+//    Savings savings = new Savings();
+    Account(String firstName, String lastName, double balance)
     {
-        ArrayList<Account> accounts;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.balance = balance;
     }
-
-    public void acctMenu() throws IOException
+    Account()
     {
-
-        boolean quit = false;
-        do
-        {
-            System.out.println("|-----------------------------------------------|");
-            System.out.println("|         Welcome to your Bank Account:         |");
-            System.out.println("|-----------------------------------------------|");
-            System.out.println("|            Choose an option below:            |");
-            System.out.println("|                                               |");
-            System.out.println("|             1.  Deposit                       |");
-            System.out.println("|             2.  Withdraw                      |");
-            System.out.println("|             3.  Check Balance                 |");
-            System.out.println("|             4.  Calc Intrest                  |");
-            System.out.println("|            99.  Exit                          |");
-            System.out.println("|-----------------------------------------------|");
-            menuItem = sc.next();
-            switch (Integer.parseInt(menuItem))
-            {
-                case 1:
-                {
-                    System.out.println("You have choosen to deposit:");
-                    Deposit();
-                    break;
-                }
-                case 2:
-                {
-                    System.out.println("You have choosen to withdraw:");
-                    Withdraw();
-                    break;
-                }
-                case 3:
-                {
-                    System.out.println("You have choosen to check your "
-                            + "balance:");
-                    CheckBalance();
-                    break;
-                }
-                case 4:
-                {
-                    System.out.println("You have choosen to calculate your "
-                            + "intrest:");
-                    calcInterest();
-                    break;
-                }
-                case 99:
-                    quit = true;
-                    break;
-                default:
-                    System.out.println("Invalid menu choice, please make another"
-                            + " selection.");
-            }
-        } while (!quit);
+        
     }
+  //  Account acct = new Account();
+    
 
-    public double Deposit()
+//    public void setAcctName(String lastName, int i)
+//    {
+//        ArrayList<Account> accounts;
+//    }
+
+//    Account() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+
+
+    double Deposit()
     {
+        this.amount += amount;
         System.out.println("Please enter the deposit amount:");
         depAmt = sc.nextDouble();
         balance = getBalance() + depAmt;
@@ -149,7 +116,7 @@ public class Account implements Serializable
     public void getInterest()
     {
         int datediff = seconddate - firstdate;
-        rate = .05 / 365;
+        setRate(.05 / 365);
         double ratetime = Math.pow(1 + getRate(), datediff);
         balance = getBalance() * ratetime;
         firstdate = seconddate;
@@ -212,8 +179,6 @@ public class Account implements Serializable
         return firstName;
     }
 
-    
-
     /**
      * @return the lastName
      */
@@ -221,4 +186,123 @@ public class Account implements Serializable
     {
         return lastName;
     }
+
+    boolean accountType()
+    {
+        boolean quit = false;
+        do
+        {
+            System.out.println("|-----------------------------------------------|");
+            System.out.println("|         Welcome to your Bank Account:         |");
+            System.out.println("|-----------------------------------------------|");
+            System.out.println("|            Choose an option below:            |");
+            System.out.println("|                                               |");
+            System.out.println("|             1.  Checking                      |");
+            System.out.println("|             2.  Savings                       |");
+//            System.out.println("|             3.                                |");
+//            System.out.println("|             4.  Calc Intrest                  |");
+            System.out.println("|            99.  Exit                          |");
+            System.out.println("|-----------------------------------------------|");
+            menuItem = sc.next();
+            switch (Integer.parseInt(menuItem))
+            {
+                case 1:
+                {
+                    System.out.println("You have choosen to create a Checking Account:");
+//                    Account acct = new Account();
+                    ATM am = new ATM();
+                    
+                    boolean ck = true;
+                    quit = true;
+                    return ck = true;
+                }
+                case 2:
+                {
+                    System.out.println("You have choosen to create a Savings Account:");
+                    //savings.getRate();
+                    boolean sv = true;
+                    quit = true;
+                    return sv = true;
+//                    break;
+                }
+                case 99:
+                    quit = true;
+                    break;
+                default:
+                    System.out.println("Invalid menu choice, please make another"
+                            + " selection.");
+            }
+        } while (!quit);
+        return quit = true;
+        
+
+    }
+    
+        public void acctMenu() throws IOException
+    {
+
+        boolean quit = false;
+        do
+        {
+            System.out.println("|-----------------------------------------------|");
+            System.out.println("|         Welcome to your Bank Account:         |");
+            System.out.println("|-----------------------------------------------|");
+            System.out.println("|            Choose an option below:            |");
+            System.out.println("|                                               |");
+            System.out.println("|             1.  Deposit                       |");
+            System.out.println("|             2.  Withdraw                      |");
+            System.out.println("|             3.  Check Balance                 |");
+            System.out.println("|             4.  Calc Intrest                  |");
+            System.out.println("|            99.  Exit                          |");
+            System.out.println("|-----------------------------------------------|");
+            menuItem = sc.next();
+            switch (Integer.parseInt(menuItem))
+            {
+                case 1:
+                {
+                    System.out.println("You have choosen to deposit:");
+                    Deposit();
+                    break;
+                }
+                case 2:
+                {
+                    System.out.println("You have choosen to withdraw:");
+                    Withdraw();
+                    break;
+                }
+                case 3:
+                {
+                    System.out.println("You have choosen to check your "
+                            + "balance:");
+                    CheckBalance();
+                    break;
+                }
+                case 4:
+                {
+                    System.out.println("You have choosen to calculate your "
+                            + "intrest:");
+                    calcInterest();
+                    break;
+                }
+                case 99:
+                    quit = true;
+                    break;
+                default:
+                    System.out.println("Invalid menu choice, please make another"
+                            + " selection.");
+            }
+        } while (!quit);
+    }
+
+    void setBalance() {
+        double balance = 100;
+    }
+
+    /**
+     * @param rate the rate to set
+     */
+    public void setRate(double rate) {
+        this.rate = rate;
+    }
+
 }
