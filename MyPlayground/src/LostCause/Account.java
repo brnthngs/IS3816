@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ATM;
+package LostCause;
 
+import ATM.*;
 import java.io.*;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
@@ -31,7 +32,7 @@ public class Account implements Serializable
     protected boolean dateflag = false;
     boolean ck = false;
     boolean sv = false;
-    protected double rate;
+    double rate;
     String menuItem;
     double acctBalance;
     double balanceNew;
@@ -66,23 +67,21 @@ public class Account implements Serializable
 //    }
 
 
-    double Deposit() throws IOException
+    double Deposit()
     {
         this.amount += amount;
         System.out.println("Please enter the deposit amount:");
         depAmt = sc.nextDouble();
         balance = getBalance() + depAmt;
-        calcInterest();
         System.out.printf("Your new balance is $%.02f\n", getBalance());
         return getBalance();
     }
 
-    public double Withdraw() throws IOException
+    public double Withdraw()
     {
         System.out.println("Please enter the amount to withdraw:");
         withAmt = sc.nextDouble();
         balance = getBalance() - withAmt;
-        calcInterest();
         System.out.printf("Your new balance is $%.02f\n", getBalance());
         return getBalance();
     }
@@ -118,7 +117,7 @@ public class Account implements Serializable
     public void getInterest()
     {
         int datediff = seconddate - firstdate;
-        setRate(.05 / 365);
+        rate = .05 / 365;
         double ratetime = Math.pow(1 + getRate(), datediff);
         balance = getBalance() * ratetime;
         firstdate = seconddate;
@@ -294,17 +293,6 @@ public class Account implements Serializable
                             + " selection.");
             }
         } while (!quit);
-    }
-
-    void setBalance() {
-        double balance = 100;
-    }
-
-    /**
-     * @param rate the rate to set
-     */
-    public void setRate(double rate) {
-        this.rate = rate;
     }
 
 }

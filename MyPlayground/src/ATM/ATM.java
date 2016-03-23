@@ -13,8 +13,14 @@ import java.util.*;
  * @author bpwc0b
  */
 public class ATM implements Serializable {
-
+    /**
+     * 
+     */
     public int acctNumber;
+    
+    /**
+     * 
+     */
     Scanner sc = new Scanner(System.in);
     private String accountType;
 
@@ -194,7 +200,9 @@ public class ATM implements Serializable {
             selectAccount();
         }
     }
-
+    /**
+     * 
+     */
     public void WriteFile() {
         try {
             FileOutputStream fos = new FileOutputStream("Account1.ser");
@@ -206,7 +214,9 @@ public class ATM implements Serializable {
             System.err.println(e);
         }
     }
-
+    /**
+     * 
+     */
     public void ReadFile() {
         try {
             FileInputStream fis = new FileInputStream("Account1.ser");
@@ -217,7 +227,9 @@ public class ATM implements Serializable {
             System.err.println(e);
         }
     }
-
+    /**
+     * 
+     */
     public void displayAcct() {
 
         System.out.println("Index\tAccount\t\t\tFirstName\tLastName\tBalance\t\tRate");
@@ -229,8 +241,12 @@ public class ATM implements Serializable {
                         + "\t\t" + acct[i].getRate());
             }
         }
+        
+        
     }
-
+    /**
+     * 
+     */
     private void PopulateAccounts() {
         for (int i = 0; i < acct.length; i++) {
             String firstName;
